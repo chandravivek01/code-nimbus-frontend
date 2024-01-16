@@ -11,14 +11,14 @@ const Cards = ({ course }) => {
                 <Card.Img 
                     variant="top" 
                     src={course.imageAddress} height={250}
-                    onClick={ () => ( navigate(`/${course.id}`) ) } />
+                    onClick={ () => ( navigate(`/courses/${course.id}`) ) } />
                 <Card.Body>
                     <Card.Title>{course.title}</Card.Title>
                     <Card.Text>
                         {course.description}
                     </Card.Text>
                     <Button
-                        onClick={ () => ( navigate(`/${course.id}`) ) }
+                        onClick={ () => ( navigate(`/courses/${course.id}`) ) }
                         style={{ fontSize: '1rem', position: 'absolute', bottom: '3%' }}
                     >
                         Go to the details

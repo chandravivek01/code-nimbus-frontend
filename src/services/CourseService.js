@@ -1,11 +1,17 @@
 import axios from "axios";
 
-const baseUrl = `http://localhost:3002/courses`;
+const baseUrl = `http://localhost:3002`;
 
 const getCourses =  async () => {
 
-    const response = await axios.get(`${baseUrl}`);
+    const response = await axios.get(`${baseUrl}/courses`);
     return response.data;
 }
 
-export { getCourses };
+const getDsaTopics =  async () => {
+
+    const response = await axios.get(`${baseUrl}/dsa`);
+    return response.data;
+}
+
+export { getCourses, getDsaTopics };
