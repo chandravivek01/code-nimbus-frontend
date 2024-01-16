@@ -5,7 +5,7 @@ const CardList = ( { courses } ) => {
   return (
     <>
         {
-            courses.map( course => ( <Cards key={course.title} course={course}/>) )
+            courses.map( course => ( <Cards key={course.id} course={course}/>) )
         }
     </>
   )
