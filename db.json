@@ -1,0 +1,16 @@
+{
+    "courses": [
+        {
+            "title": "Data Structures and Algorithms"
+        },
+        {
+            "title": "Backend"
+        },
+        {
+            "title": "Frontend"
+        },
+        {
+            "title": "Cloud Computing"
+        }
+    ]
+}

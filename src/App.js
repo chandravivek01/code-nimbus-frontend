@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import { Container } from 'react-bootstrap';
 import './App.css';
+import CardList from './components/CardList';
+import { useEffect, useState } from 'react';
+import { getCourses } from './services/CourseService';
 
 function App() {
+
+  const [ courses, setCourses ] = useState([]);
+
+  useEffect( () => {
+
+    const fetchCourses = async () => {
+
+      const data = await getCourses();
+      setCourses(data);
+    }
+    fetchCourses();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <Container style={{ marginTop: '60px' }}>
+          <div className='flexbox'>
+            <CardList courses={courses} />
+          </div>
+        </Container>
+      </div>
+    </>
   );
 }
 
