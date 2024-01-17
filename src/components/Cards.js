@@ -11,7 +11,8 @@ const Cards = ({ course }) => {
                 <Card.Img 
                     variant="top" 
                     src={course.imageAddress} height={250}
-                    onClick={ () => ( navigate(`/courses/${course.id}`) ) } />
+                    onClick={ () => ( navigate(`/courses/${course.id}`) ) } 
+                    style={ { cursor: 'pointer' }} />
                 <Card.Body>
                     <Card.Title>{course.title}</Card.Title>
                     <Card.Text>

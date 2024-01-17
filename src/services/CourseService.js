@@ -14,4 +14,14 @@ const getDsaTopics =  async () => {
     return response.data;
 }
 
-export { getCourses, getDsaTopics };
+const getQuestions =  async (topic) => {
+
+    if ( topic === 'strings' ) {
+
+        const response = await axios.get(`${baseUrl}/questions/strings`);
+        return response.data;
+    }
+   
+}
+
+export { getCourses, getDsaTopics, getQuestions };
