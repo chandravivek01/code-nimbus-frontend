@@ -14,7 +14,7 @@ server.get('/questions/:category', (req, res) => {
 
 server.use(router);
 
-const PORT = 3002;
+const PORT = 8080;
 server.listen(PORT, () => {
   console.log(`JSON Server is running at http://localhost:${PORT}`);
 });

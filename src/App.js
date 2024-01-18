@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 
 import { getCourses } from './services/CourseService';
 import CardList from './components/CardList';
+import Navigation from './components/navigation/Navigation';
 
 import './App.css';
 
@@ -37,16 +38,19 @@ function App() {
   return (
 
     <div className="App">
+
+      <Navigation />
+
       <Container style={{ marginTop: '60px' }}>
         <div className='flexbox'>
           <Routes>
 
             <Route path='/' element={<CardList courses={courses} />} />
-            <Route path='/courses/1' element={ <DSA /> } /> 
-            <Route path='/courses/2' element={ <Backend /> } /> 
-            <Route path='/courses/3' element={ <Frontend /> } /> 
-            <Route path='/courses/4' element={ <Cloud /> } /> 
-            <Route path='/questions/strings' element={ <Strings /> } /> 
+            <Route path='/courses/1' element={<DSA />} />
+            <Route path='/courses/2' element={<Backend />} />
+            <Route path='/courses/3' element={<Frontend />} />
+            <Route path='/courses/4' element={<Cloud />} />
+            <Route path='/questions/strings' element={<Strings />} />
             {/* <Route path='/courses/1' element={<Suspense fallback={<div>Loading ...</div>}><DSA /> </Suspense>} /> */}
             {/* <Route path='/courses/2'
               element={<Suspense fallback={<div>Loading ...</div>}><Backend /> </Suspense>}

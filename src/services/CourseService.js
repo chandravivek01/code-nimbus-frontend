@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = `http://localhost:3002`;
+const baseUrl = `http://localhost:8080`;
 
 const getCourses =  async () => {
 
