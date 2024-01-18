@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
     return (
-        <Navbar expand="lg" className="bg-info-subtle">
+        <Navbar expand="lg" className="bg-info-subtle" fixed='top'>
             <Container>
                 <Navbar.Brand href="#home" className='text-success fs-3'>
                     <NavLink to='/' style={ {textDecoration: 'none'}}>CodeNimbus</NavLink>

@@ -40,5 +40,3 @@
   .accordion-item.open .accordion-content {
     max-height: 1000px; /* Adjust this value based on your content height */
   }
-
-  

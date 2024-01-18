@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 
 import { getCourses } from './services/CourseService';
 import CardList from './components/CardList';
@@ -13,6 +13,7 @@ import Backend from './components/courses/Backend';
 import Frontend from './components/courses/Frontend';
 import Cloud from './components/courses/Cloud';
 import Strings from './components/dsa/Strings';
+import TestimonialPage from './components/testimonial/TestimonialPage';
 
 // const DSA = lazy(() => { import('./components/courses/DSA') });
 // const Backend = lazy(() => { import('./components/courses/Backend') });
@@ -24,6 +25,13 @@ function App() {
 
   const [courses, setCourses] = useState([]);
 
+  const WrapperComponent = ({ children }) => (
+    <>
+      {/* Additional layout or wrapper components can be added here */}
+      {children}
+    </>
+  );
+
   useEffect(() => {
 
     const fetchCourses = async () => {
@@ -31,7 +39,6 @@ function App() {
       const data = await getCourses();
       setCourses(data);
     }
-
     fetchCourses();
   }, []);
 
@@ -41,11 +48,18 @@ function App() {
 
       <Navigation />
 
-      <Container style={{ marginTop: '60px' }}>
-        <div className='flexbox'>
+      <Container style={{ marginTop: '80px' }}>
           <Routes>
-
-            <Route path='/' element={<CardList courses={courses} />} />
+            <Route path='/' element={
+                                      <WrapperComponent>
+                                        <Row className='flexbox'>
+                                          <CardList courses={courses} />
+                                        </Row>
+                                        <Row>
+                                          <TestimonialPage />
+                                        </Row>
+                                      </WrapperComponent>
+                                    } />
             <Route path='/courses/1' element={<DSA />} />
             <Route path='/courses/2' element={<Backend />} />
             <Route path='/courses/3' element={<Frontend />} />
@@ -64,8 +78,8 @@ function App() {
             {/* <Route path='/dsa/1' element={<Suspense fallback={<div>Loading ...</div>}><Strings /> </Suspense>} /> */}
 
           </Routes>
-        </div>
       </Container>
+      
     </div>
 
   );
